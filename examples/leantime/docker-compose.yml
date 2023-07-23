@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: leantime-mysql
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/leantime/mysql:/var/lib/mysql
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/leantime/mysql:/var/lib/mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: '321.qwerty'
@@ -27,12 +27,12 @@ services:
       LEAN_DB_USER: 'admin'
       LEAN_DB_PASSWORD: '321.qwerty'
       LEAN_DB_DATABASE: 'leantime'
-      LEAN_DEFAULT_TIMEZONE: 'Europe/Berlin'                            # Set default server timezone
+      LEAN_DEFAULT_TIMEZONE: 'America/New_York'                            # Set default server timezone
       LEAN_SESSION_PASSWORD: 'GD8Fozemg3AqM9my86TTfgTeGPXXkPF7'         # Salting sessions. Replace with a strong password
       LEAN_SESSION_EXPIRATION: 28800                                    # How many seconds after inactivity should we logout?  28800seconds = 8hours
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/leantime/public_data:/var/www/html/public/userfiles
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/leantime/data:/var/www/html/userfiles
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/leantime/public_data:/var/www/html/public/userfiles
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/leantime/data:/var/www/html/userfiles
     ports:
       - "8080:80"                                                       # The port to expose and access Leantime
     depends_on:

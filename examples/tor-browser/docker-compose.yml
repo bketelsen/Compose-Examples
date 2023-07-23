@@ -9,6 +9,6 @@ services:
       #- DISPLAY_WIDTH=1280 # default; optional
       #- DISPLAY_HEIGHT=768 # default; optional
       #- KEEP_APP_RUNNING=0 # default; optional
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     #volumes:
-    #  - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/torbrowser/data:/app/Browser/TorBrowser/Data/Tor # optional, just to speed up container recreation
+    #  - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/torbrowser/data:/app/Browser/TorBrowser/Data/Tor # optional, just to speed up container recreation

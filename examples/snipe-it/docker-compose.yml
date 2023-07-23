@@ -13,9 +13,9 @@ services:
       - MYSQL_DATABASE=snipeitdb
       - MYSQL_USER=snipeit
       - MYSQL_PASSWORD=VeryStrongDatabasePassword
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/snipeit/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/snipeit/config:/config
     ports:
       - 8080:80
     restart: unless-stopped
@@ -26,11 +26,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - MYSQL_ROOT_PASSWORD=MyVeryStrongDatabaseRootPassword # change this
       - MYSQL_DATABASE=snipeitdb
       - MYSQL_USER=snipeit
       - MYSQL_PASSWORD=VeryStrongDatabasePassword # change this
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/snipeit/mariadb:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/snipeit/mariadb:/config
     restart: unless-stopped

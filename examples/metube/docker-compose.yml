@@ -9,7 +9,7 @@ services:
     ports:
       - "8081:8081" # web ui
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/metube/downloads:/downloads
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/metube/downloads:/downloads
     #networks:
     #  - proxy
     #labels:

@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=raveberry
       - POSTGRES_PASSWORD=raveberry
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/raveberry/data:/var/lib/postgresql/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/raveberry/data:/var/lib/postgresql/data
     restart: unless-stopped
     #networks:
     #  - proxy

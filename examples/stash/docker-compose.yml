@@ -27,15 +27,15 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       ## Keep configs, scrapers, and plugins here.
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/stash/config:/root/.stash
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/stash/config:/root/.stash
       ## Point this at your collection.
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/stash/data:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/stash/data:/data
       ## This is where your stash's metadata lives
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/stash/metadata:/metadata
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/stash/metadata:/metadata
       ## Any other cache content.
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/stash/cache:/cache
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/stash/cache:/cache
       ## Where to store generated content (screenshots,previews,transcodes,sprites)
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/stash/generated:/generated
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/stash/generated:/generated
     #labels:
     #  - traefik.enable=true
     #  - traefik.http.routers.stash.rule=Host(`stash.example.com`)

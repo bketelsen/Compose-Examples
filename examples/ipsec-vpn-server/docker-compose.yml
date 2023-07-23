@@ -27,5 +27,5 @@ services:
       - "4500:4500/udp"
     privileged: true
     volumes:
-      -  ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/ipsec-vpn-server/data:/etc/ipsec.d # required to enable IKEv2
+      -  ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/ipsec-vpn-server/data:/etc/ipsec.d # required to enable IKEv2
       - /lib/modules:/lib/modules:ro # required to pass kernel modules

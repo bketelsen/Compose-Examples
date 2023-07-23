@@ -6,9 +6,9 @@ services:
     network_mode: "host"
     restart: unless-stopped
     volumes:
-    - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/watchyourlan:/data
+    - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/watchyourlan:/data
     environment:
-      TZ: Europe/Berlin                 # required: needs your TZ for correct time
+      TZ: America/New_York                 # required: needs your TZ for correct time
       IFACE: "ens18"                    # required: 1 or more interface
       DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
       GUIIP: "127.0.0.1"                # optional, default: localhost

@@ -16,5 +16,5 @@ error: 'An error occurred when creating an index for collection "users: getaddri
 Therefore, you have to adjust the permissions of the mongodb volume path. For example with the following command:
 
 ````
-sudo chmod -R 777 /mnt/docker-volumes/rocketchat
+sudo chmod -R 777 /home/op/persist/rocketchat
 ````

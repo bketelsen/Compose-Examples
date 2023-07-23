@@ -20,7 +20,7 @@ services:
             POSTGRES_USER: forte     # Set Postgres Username
             POSTGRES_PASSWORD: forte # Set Postgres Password
         volumes:
-            - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/forte/library:/library # your music library to import from
+            - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/forte/library:/library # your music library to import from
         #networks:
         #    - proxy
         #labels:
@@ -42,7 +42,7 @@ services:
             POSTGRES_USER: forte     # Set Postgres Username
             POSTGRES_PASSWORD: forte # Set Postgres Password
         volumes:
-            - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/forte/db:/var/lib/postgresql/data
+            - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/forte/db:/var/lib/postgresql/data
         healthcheck:
             test: [ "CMD-SHELL", "pg_isready -U forte" ]
             interval: 10s

@@ -5,7 +5,7 @@ services:
     image: authelia/authelia
     container_name: authelia
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/authelia/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/authelia/config:/config
     networks:
       - proxy
     labels:
@@ -19,21 +19,21 @@ services:
       - 9091
     restart: unless-stopped
     environment:
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
 
   redis:
     image: redis:alpine
     container_name: authelia-redis
     command: redis-server --requirepass SuperSecureRedisAuthPassword # also reflect this in the authelia config file
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/authelia/redis:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/authelia/redis:/data
     networks:
       - proxy
     expose:
       - 6379
     restart: unless-stopped
     environment:
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
 
 networks:
    proxy:

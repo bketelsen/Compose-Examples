@@ -8,7 +8,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - RATE_LIMIT=false #optional
       - WS_FALLBACK=false #optional
     ports:

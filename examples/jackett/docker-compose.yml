@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - AUTO_UPDATE=true #optional
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/jackett/config:/config
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/jackett/downloads:/downloads
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/jackett/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/jackett/downloads:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped

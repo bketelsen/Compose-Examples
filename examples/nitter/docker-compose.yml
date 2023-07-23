@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/nitter/nitter.conf:/src/nitter.conf:ro
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/nitter/nitter.conf:/src/nitter.conf:ro
     depends_on:
       - nitter-redis
     restart: unless-stopped
@@ -21,7 +21,7 @@ services:
     container_name: nitter-redis
     command: redis-server --save 60 1 --loglevel warning
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/nitter/data:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/nitter/data:/data
     restart: unless-stopped
     healthcheck:
       test: redis-cli ping

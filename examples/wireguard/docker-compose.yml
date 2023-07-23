@@ -10,7 +10,7 @@ services:
      environment: 
        - PUID=1000 
        - PGID=1000 
-       - TZ=Europe/Berlin
+       - TZ=America/New_York
        - SERVERURL=vpn.example.com #optional 
        - SERVERPORT=51820 #optional 
        - PEERS=1 #optional 
@@ -18,7 +18,7 @@ services:
        - INTERNAL_SUBNET=10.13.13.0 #optional 
        - ALLOWEDIPS=0.0.0.0/0 #optional 
      volumes: 
-       - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/wireguard/config:/config 
+       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/wireguard/config:/config 
        - /usr/src:/usr/src # location of kernel headers 
        - /lib/modules:/lib/modules 
      ports: 

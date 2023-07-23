@@ -10,7 +10,7 @@ services:
       - MYSQL_PASSWORD=your_filerun_password
       - MYSQL_DATABASE=your_filerun_database
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/filerun/db:/var/lib/mysql
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/filerun/db:/var/lib/mysql
 
   filerun:
     image: filerun/filerun
@@ -28,5 +28,5 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/filerun/html:/var/www/html
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/filerun/files:/user-files
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/filerun/html:/var/www/html
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/filerun/files:/user-files

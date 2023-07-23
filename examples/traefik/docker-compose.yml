@@ -9,12 +9,12 @@ services:
       - 127.0.0.1:8080:8080 # MGMT WEB UI
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro # ro = read-only access to the docker.sock
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/traefik:/etc/traefik/ # put the provided traefik.yml and fileConfig.yml files at this location
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/traefik/logs:/logs
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/traefik:/etc/traefik/ # put the provided traefik.yml and fileConfig.yml files at this location
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/traefik/logs:/logs
     networks:
       - proxy
     environment:
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - CF_DNS_API_TOKEN=MyCloudflareApiToken # change this
     labels:
       - traefik.enable=true

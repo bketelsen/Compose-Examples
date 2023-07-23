@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/lidarr/config:/config
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/lidarr/music:/music
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/lidarr/downloads:/downloads # Should be the same as the download client's folder
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/lidarr/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/lidarr/music:/music
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/lidarr/downloads:/downloads # Should be the same as the download client's folder
     ports:
       - 8686:8686
     restart: unless-stopped

@@ -8,5 +8,5 @@ services:
             - 8191:8191
         environment:
             - LOG_LEVEL=info
-            - TZ=Europe/Berlin
+            - TZ=America/New_York
         restart: unless-stopped

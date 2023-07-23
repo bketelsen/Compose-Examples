@@ -17,7 +17,7 @@ services:
       - 51821:51821/tcp #WEBGUI
     restart: unless-stopped
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/wg-easy:/etc/wireguard
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/wg-easy:/etc/wireguard
     #networks:
     #  - proxy
 #    labels:

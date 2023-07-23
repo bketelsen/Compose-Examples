@@ -6,11 +6,11 @@ services:
     container_name: goaccess
     restart: always
     volumes:
-        - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/nginx-proxy-manager/data/logs:/opt/log:ro
+        - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/nginx-proxy-manager/data/logs:/opt/log:ro
     environment:
         - PUID=1000
         - PGID=1000
-        - TZ=Europe/Berlin
+        - TZ=America/New_York
         - SKIP_ARCHIVED_LOGS=False #optional
         - BASIC_AUTH=False #optional
         - BASIC_AUTH_USERNAME=user #optional

@@ -13,7 +13,7 @@ services:
     image: gitea/gitea:latest
     restart: unless-stopped
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/gitea/data:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/gitea/data:/data
     #networks:
     #  - proxy
     #labels:

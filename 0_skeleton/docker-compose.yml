@@ -13,11 +13,11 @@ services:
       #- /etc/localtime:/etc/localtime:ro
       #- /etc/timezone:/etc/timezone:ro
       #- /var/run/docker.sock:/var/run/docker.sock:ro
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/example:/opt/example/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/example:/opt/example/data
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     #networks:
     #  - proxy
     #labels:

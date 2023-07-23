@@ -18,7 +18,7 @@ services:
     #networks:
     #  - proxy
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/rocketchat/uploads:/app/uploads # only use if you enable filesystem upload in the admin area; see https://docs.rocket.chat/use-rocket.chat/workspace-administration/settings/file-upload#storage-type
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/rocketchat/uploads:/app/uploads # only use if you enable filesystem upload in the admin area; see https://docs.rocket.chat/use-rocket.chat/workspace-administration/settings/file-upload#storage-type
     environment:
       MONGO_URL: "${MONGO_URL:-\
         mongodb://${MONGODB_ADVERTISED_HOSTNAME:-mongodb}:${MONGODB_INITIAL_PRIMARY_PORT_NUMBER:-27017}/\
@@ -39,7 +39,7 @@ services:
     image: docker.io/bitnami/mongodb:${MONGODB_VERSION:-4.4}
     restart: unless-stopped
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/rocketchat/mongodb:/bitnami/mongodb
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/rocketchat/mongodb:/bitnami/mongodb
     environment:
       MONGODB_REPLICA_SET_MODE: primary
       MONGODB_REPLICA_SET_NAME: ${MONGODB_REPLICA_SET_NAME:-rs0}

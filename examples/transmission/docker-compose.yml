@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     volumes:
-      - '${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/transmission/config:/config'
-      - '${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/transmission/downloads:/downloads'
-      - '${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/transmission/watch:/watch'
+      - '${DOCKER_VOLUME_STORAGE:-/home/op/persist}/transmission/config:/config'
+      - '${DOCKER_VOLUME_STORAGE:-/home/op/persist}/transmission/downloads:/downloads'
+      - '${DOCKER_VOLUME_STORAGE:-/home/op/persist}/transmission/watch:/watch'
     ports:
       - 9091:9091 # web ui
       - 51413:51413 # torrent port tcp

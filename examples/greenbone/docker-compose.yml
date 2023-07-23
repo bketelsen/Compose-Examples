@@ -3,9 +3,9 @@ services:
     gvm:
         image: securecompliance/gvm
         volumes:
-          - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/greenbone/database:/opt/database
-          - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/greenbone/gvm:/var/lib/gvm
-          - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/greenbone/plugins:/var/lib/openvas/plugins
+          - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/greenbone/database:/opt/database
+          - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/greenbone/gvm:/var/lib/gvm
+          - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/greenbone/plugins:/var/lib/openvas/plugins
         environment:
           - USERNAME="admin"
           - PASSWORD="admin"
@@ -13,7 +13,7 @@ services:
           - SMTPPORT=465
           - AUTO_SYNC=true
           - HTTPS=true
-          - TZ="Europe/Berlin"
+          - TZ="America/New_York"
           - SSHD=false
           - DB_PASSWORD="none"
         ports:

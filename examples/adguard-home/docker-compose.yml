@@ -20,5 +20,5 @@ services:
       # - 5443:5443/udp # dnscrypt
     restart: unless-stopped
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/adguard-home/work:/opt/adguardhome/work
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/adguard-home/conf:/opt/adguardhome/conf
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/adguard-home/work:/opt/adguardhome/work
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/adguard-home/conf:/opt/adguardhome/conf

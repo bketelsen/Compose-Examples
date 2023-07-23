@@ -9,7 +9,7 @@ services:
       - TZ=UTC/Chicago
       # - BASE_URL=/ombi #optional
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/ombi/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/ombi/config:/config
     ports:
       - 3579:3579
     restart: unless-stopped

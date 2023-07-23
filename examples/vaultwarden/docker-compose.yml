@@ -23,7 +23,7 @@ services:
       - WEBSOCKET_ENABLED=true
       - ROCKET_ENV=prod
       - ROCKET_WORKERS=10
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - LOG_LEVEL=error
       - EXTENDED_LOGGING=true
     ports:
@@ -45,8 +45,8 @@ services:
     #  - traefik.http.services.vaultwarden-admin.loadbalancer.server.port=80
     #  - traefik.http.routers.vaultwarden-admin.middlewares=local-ipwhitelist@file,authelia@file
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/vaultwarden/data:/data
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/vaultwarden/logs:/data/logs
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/data:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/logs:/data/logs
 
   # this service will backup your vaultwarden instance correctly
   # see https://github.com/Bruceforce/vaultwarden-backup for more information
@@ -61,8 +61,8 @@ services:
     #labels:
     #  com.centurylinklabs.watchtower.monitor-only: true
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/vaultwarden/data:/data/
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/vaultwarden/backup:/myBackup
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/data:/data/
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/backup:/myBackup
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     #networks:
@@ -72,7 +72,7 @@ services:
       - DELETE_AFTER=30
       - UID=0
       - GID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - BACKUP_DIR=/myBackup
       - CRON_TIME=50 3 * * * # see https://crontab.guru/, define without quotes!
 

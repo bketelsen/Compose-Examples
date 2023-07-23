@@ -12,7 +12,7 @@ services:
       MYSQL_USER: "passbolt"
       MYSQL_PASSWORD: "P4ssb0lt"
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/passbolt/mariadb:/var/lib/mysql
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/passbolt/mariadb:/var/lib/mysql
 
   passbolt:
     image: passbolt/passbolt:latest-ce # alternatively, you can use the rootless image passbolt/passbolt:latest-ce-non-root
@@ -35,8 +35,8 @@ services:
       #EMAIL_TRANSPORT_DEFAULT_PASSWORD: "smtp_pass"
       #EMAIL_TRANSPORT_DEFAULT_TLS: true # or false; default null
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/passbolt/gpg:/etc/passbolt/gpg
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/passbolt/jwt:/etc/passbolt/jwt
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/passbolt/gpg:/etc/passbolt/gpg
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/passbolt/jwt:/etc/passbolt/jwt
     command: ["/usr/bin/wait-for.sh", "-t", "0", "db:3306", "--", "/docker-entrypoint.sh"]
     ports:
       - 8543:80 # HTTP

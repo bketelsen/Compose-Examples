@@ -8,8 +8,8 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/filebrowser/data:/data
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/filebrowser/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/filebrowser/data:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/filebrowser/config:/config
     environment:
       - FB_BASEURL=/filebrowser
     restart: unless-stopped

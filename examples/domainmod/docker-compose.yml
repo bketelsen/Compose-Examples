@@ -10,14 +10,14 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - DOMAINMOD_WEB_ROOT=
       - DOMAINMOD_DATABASE_HOST=db
       - DOMAINMOD_DATABASE=domainmod
       - DOMAINMOD_USER=domainmod
       - DOMAINMOD_PASSWORD=password1
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/domainmod/app:/var/www/html
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/domainmod/app:/var/www/html
     ports:
       - 8080:80
     restart: unless-stopped
@@ -28,13 +28,13 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
       - MYSQL_DATABASE=domainmod
       - MYSQL_USER=domainmod
       - MYSQL_PASSWORD=password1
       - MYSQL_ROOT_PASSWORD=password2
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/domainmod/database:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/domainmod/database:/config
     #ports:
     #  - 3306
     restart: unless-stopped

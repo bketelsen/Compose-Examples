@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/radarr/config:/config
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/radarr/movies:/movies
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/radarr/downloads:/downloads # Should be the same as the download client's folder
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/radarr/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/radarr/movies:/movies
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/radarr/downloads:/downloads # Should be the same as the download client's folder
     ports:
       - 7878:7878
     restart: unless-stopped

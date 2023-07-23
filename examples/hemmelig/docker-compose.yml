@@ -5,8 +5,8 @@ services:
     hostname: hemmelig
     init: true
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/hemmelig/files:/var/tmp/hemmelig/upload/files
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/hemmelig/database:/home/node/hemmelig/database/
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/hemmelig/files:/var/tmp/hemmelig/upload/files
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/hemmelig/database:/home/node/hemmelig/database/
     environment:
       - SECRET_LOCAL_HOSTNAME=0.0.0.0     # The local hostname for the fastify instance
       - SECRET_PORT=3000                  # The port number for the fastify instance

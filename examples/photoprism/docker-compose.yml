@@ -19,4 +19,4 @@ services:
     restart: unless-stopped
     volumes:
       - /path/to/my/locally/stored/media/files:/photoprism/originals
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/photoprism/storage:/photoprism/storage
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/photoprism/storage:/photoprism/storage

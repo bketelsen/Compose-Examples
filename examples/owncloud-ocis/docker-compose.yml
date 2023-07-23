@@ -19,8 +19,8 @@ services:
       - PROXY_TLS=false # do not use SSL; required if you use a reverse proxy with SSL support in front
       - OCIS_INSECURE=true # required if you use a reverse proxy with SSL support in front
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/owncloud-ocis/config:/etc/ocis
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/owncloud-ocis/data:/var/lib/ocis
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/owncloud-ocis/config:/etc/ocis
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/owncloud-ocis/data:/var/lib/ocis
     expose:
       - 9200
     labels:

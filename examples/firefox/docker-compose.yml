@@ -11,9 +11,9 @@ services:
     environment:
       - PUID=1000 # optional
       - PGID=1000 # optional
-      - TZ=Europe/Berlin
+      - TZ=America/New_York
     volumes:
-      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/firefox/config:/config
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/firefox/config:/config
     ports:
       - 3210:3000
     #networks:
