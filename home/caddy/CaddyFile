@@ -1,4 +1,4 @@
-service.example.com {
+sync.ketelsen.cloud {
   encode zstd gzip
-  reverse_proxy nginx:80
+  reverse_proxy syncthing:8384
 }
