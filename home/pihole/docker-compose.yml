@@ -9,7 +9,7 @@ services:
     ports:
       - "53:53/tcp" # DNS TCP
       - "53:53/udp" # DNS UDP
-      - "80:80/tcp" # WEB ADMIN GUI
+      - "9999:80/tcp" # WEB ADMIN GUI
       #- "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
     environment:
       TZ: 'America/New_York'
