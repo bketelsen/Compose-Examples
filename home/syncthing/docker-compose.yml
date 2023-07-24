@@ -16,8 +16,8 @@ services:
       - 22000:22000/udp # QUIC file transfers
       - 21027:21027/udp # Receive local discovery broadcasts
     restart: unless-stopped
-    #networks:
-    #  - proxy
+    networks:
+      - npm_proxy
     #labels:
     #  - traefik.enable=true
     #  - traefik.http.routers.syncthing.rule=Host(`synchting.example.com`)
@@ -26,6 +26,7 @@ services:
     #  # Part for optional traefik middlewares
     #  - traefik.http.routers.syncthing.middlewares=local-ipwhitelist@file,basic-auth@file
 
-#networks:
-#  proxy:
-#    external: true
+networks:
+  default:
+    external: true
+    name: npm_proxy

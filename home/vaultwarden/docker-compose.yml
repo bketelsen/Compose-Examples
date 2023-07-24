@@ -26,10 +26,8 @@ services:
       - TZ=America/New_York
       - LOG_LEVEL=error
       - EXTENDED_LOGGING=true
-    ports:
-      - 8888:80
-    #networks:
-    #  - proxy
+    networks:
+      - npm_proxy
     #labels:
     #  - com.centurylinklabs.watchtower.monitor-only=true
     #  - traefik.enable=true
@@ -65,8 +63,8 @@ services:
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/backup:/myBackup
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-    #networks:
-    #  - proxy
+    networks:
+      - npm_proxy
     environment:
       - TIMESTAMP=true
       - DELETE_AFTER=30
@@ -76,6 +74,7 @@ services:
       - BACKUP_DIR=/myBackup
       - CRON_TIME=50 3 * * * # see https://crontab.guru/, define without quotes!
 
-#networks:
-#  proxy:
-#    external: true
+networks:
+  default:
+    external: true
+    name: npm_proxy
