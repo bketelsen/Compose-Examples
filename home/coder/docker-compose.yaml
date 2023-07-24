@@ -5,14 +5,6 @@ services:
     # other automations.
     image: ghcr.io/coder/coder:${CODER_VERSION:-latest}
     env_file: docker-compose.env
-    environment:
-      CODER_PG_CONNECTION_URL: "postgresql://${POSTGRES_USER:-username}:${POSTGRES_PASSWORD:-password}@coderdb/${POSTGRES_DB:-coder}?sslmode=disable"
-      CODER_HTTP_ADDRESS: "0.0.0.0:7080"
-      # You'll need to set CODER_ACCESS_URL to an IP or domain
-      # that workspaces can reach. This cannot be localhost
-      # or 127.0.0.1 for non-Docker templates!
-      CODER_ACCESS_URL: "${CODER_ACCESS_URL}"
-      CODER_WILDCARD_ACCESS_URL: "${CODER_WILDCARD_ACCESS_URL}"
 
     # If the coder user does not have write permissions on
     # the docker socket, you can uncomment the following
@@ -27,10 +19,7 @@ services:
         condition: service_healthy
   coderdb:
     image: "postgres:14.2"
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-username} # The PostgreSQL user (useful to connect to the database)
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password} # The PostgreSQL password (useful to connect to the database)
-      POSTGRES_DB: ${POSTGRES_DB:-coder} # The PostgreSQL default database (automatically created at first launch)
+    env_file: docker-compose.env
     volumes:
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/coder/data:/var/lib/postgresql/data
     healthcheck:
