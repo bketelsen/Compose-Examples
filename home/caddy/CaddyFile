@@ -11,3 +11,12 @@ paperless.ketelsen.cloud {
   encode zstd gzip
   reverse_proxy webserver:8000
 }
+code.ketelsen.cloud, *.code.ketelsen.cloud {
+  reverse_proxy coder:3000
+  tls {
+    on_demand
+    issuer acme {
+      email bketelsen@gmail.com
+    }
+  }
+}
