@@ -13,7 +13,6 @@ services:
       #- "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
     environment:
       TZ: 'America/New_York'
-      WEBPASSWORD: "${WEBPASSWORD}"
     # Volumes store your data between container upgrades
     volumes:
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/pihole/data:/etc/pihole
