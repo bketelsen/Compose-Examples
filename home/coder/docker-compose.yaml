@@ -4,6 +4,7 @@ services:
     # This MUST be stable for our documentation and
     # other automations.
     image: ghcr.io/coder/coder:${CODER_VERSION:-latest}
+    env_file: docker-compose.env
     environment:
       CODER_PG_CONNECTION_URL: "postgresql://${POSTGRES_USER:-username}:${POSTGRES_PASSWORD:-password}@coderdb/${POSTGRES_DB:-coder}?sslmode=disable"
       CODER_HTTP_ADDRESS: "0.0.0.0:7080"
