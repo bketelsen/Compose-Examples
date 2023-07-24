@@ -13,3 +13,7 @@ services:
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/caddy/CaddyFile:/etc/caddy/Caddyfile
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/caddy/data:/data
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/caddy/config:/config
+networks:
+  default:
+    external: true
+    name: npm_proxy
