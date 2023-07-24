@@ -5,5 +5,5 @@ sync.ketelsen.cloud {
 
 vault.ketelsen.cloud {
   encode zstd gzip
-  reverse_proxy vaultwarden:8888
+  reverse_proxy vaultwarden:80
 }
