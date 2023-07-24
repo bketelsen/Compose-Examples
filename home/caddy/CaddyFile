@@ -2,3 +2,8 @@ sync.ketelsen.cloud {
   encode zstd gzip
   reverse_proxy syncthing:8384
 }
+
+vault.ketelsen.cloud {
+  encode zstd gzip
+  reverse_proxy vaultwarden:8384
+}
