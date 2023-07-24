@@ -65,7 +65,20 @@ services:
     #  - traefik.http.middlewares.limit.buffering.maxResponseBodyBytes=50000000 # optional, only necessary for enabled file uploads
     #  - traefik.http.middlewares.limit.buffering.memRequestBodyBytes=50000000 # optional, only necessary for enabled file uploads
     #  - traefik.http.middlewares.limit.buffering.memResponseBodyBytes=50000000 # optional, only necessary for enabled file uploads
-    
+
+  samba:
+    image: crazymax/samba
+    container_name: samba
+    network_mode: host
+    volumes:
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/paperless-ngx/samba:/data
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/paperless-ngx/export:/samba/export
+      - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/paperless-ngx/consume:/samba/consume
+    environment:
+      - "TZ=America/New_York"
+      - "SAMBA_LOG_LEVEL=0"
+    restart: always
+   
 networks:
   default:
     external: true
