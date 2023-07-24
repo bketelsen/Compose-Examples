@@ -7,3 +7,7 @@ vault.ketelsen.cloud {
   encode zstd gzip
   reverse_proxy vaultwarden:80
 }
+paperless.ketelsen.cloud {
+  encode zstd gzip
+  reverse_proxy webserver:8000
+}
