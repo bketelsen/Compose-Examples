@@ -26,7 +26,7 @@ services:
       test:
         [
           "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER:-username} -d ${POSTGRES_DB:-coder}",
+          "pg_isready -U coder -d coder",
         ]
       interval: 5s
       timeout: 5s
