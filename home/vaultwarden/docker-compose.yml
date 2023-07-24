@@ -26,8 +26,6 @@ services:
       - TZ=America/New_York
       - LOG_LEVEL=error
       - EXTENDED_LOGGING=true
-    networks:
-      - npm_proxy
     #labels:
     #  - com.centurylinklabs.watchtower.monitor-only=true
     #  - traefik.enable=true
@@ -63,8 +61,6 @@ services:
       - ${DOCKER_VOLUME_STORAGE:-/home/op/persist}/vaultwarden/backup:/myBackup
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-    networks:
-      - npm_proxy
     environment:
       - TIMESTAMP=true
       - DELETE_AFTER=30
